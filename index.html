@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Γρηγορία Σόμπολου | Συνθετική Ψυχοθεραπεία & EMDR</title>
+    <meta name="description" content="Η Γρηγορία Σόμπολου (BSc, MA, MSc) είναι αδειούχος Ψυχολόγος, Ψυχοθεραπεύτρια και πιστοποιημένη EMDR Therapist στους Θρακομακεδόνες.">
+    <meta name="author" content="Advon Media">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon: Using the portrait as a sleek circular favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/unnamed-8.jpg" type="image/jpeg" style="border-radius: 50%;">
+
+    <!-- Google Fonts: Inter for clean UI, Cormorant Garamond for luxurious serif headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        calm: {
+                            50: '#f8f9fa',
+                            100: '#eef1f3',
+                            200: '#d5dde0',
+                            300: '#b2c0c5',
+                            400: '#8ba0a8',
+                            500: '#6d838c',
+                            600: '#566973',
+                            700: '#46555d',
+                            800: '#3c484e',
+                            900: '#1a2024', // Deep luxury slate
+                            950: '#111518',
+                        },
+                        accent: {
+                            light: '#aebbc0',
+                            DEFAULT: '#7a8e97',
+                            dark: '#4c5c63'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    boxShadow: {
+                        'luxe': '0 20px 40px -10px rgba(26, 32, 36, 0.1)',
+                        'float': '0 30px 60px -15px rgba(26, 32, 36, 0.2)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
+                    },
+                    animation: {
+                        'float': 'float 8s ease-in-out infinite',
+                        'breathe': 'breathe 12s ease-in-out infinite',
+                        'scroll-vertical': 'scrollVertical 25s linear infinite',
+                        'parallax': 'parallax 20s linear infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        },
+                        scrollVertical: {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(-50%)' },
+                        },
+                        parallax: {
+                            '0%': { transform: 'scale(1.1) translateY(0)' },
+                            '100%': { transform: 'scale(1.1) translateY(-3%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for advanced effects -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #3c484e;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background-color: #7a8e97;
+            color: #ffffff;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8f9fa; }
+        ::-webkit-scrollbar-thumb { background: #7a8e97; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4c5c63; }
+
+        /* Glassmorphism */
+        .glass-dark {
+            background: rgba(26, 32, 36, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-light {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active, .reveal-left.active, .reveal-right.active { opacity: 1; transform: translate(0, 0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #eef1f3, #7a8e97);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-dark {
+            background: linear-gradient(135deg, #1a2024, #566973);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        #lightbox img { transform: scale(0.95); transition: transform 0.5s ease; max-height: 90vh; max-width: 90vw; }
+        #lightbox.active img { transform: scale(1); }
+
+        /* Mask for vertical marquee */
+        .marquee-mask {
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+
+        .img-unconstrained {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans antialiased text-calm-800 bg-calm-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-500 py-6" id="navbar">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass-light rounded-full flex justify-between items-center px-8 py-4 shadow-glass transition-all duration-300">
+                <!-- Logo styling as requested: Full name and title, circled background effect but not cropped, leading to top -->
+                <a href="#" class="flex items-center gap-4 group">
+                    <div class="relative w-12 h-12 flex items-center justify-center rounded-full bg-calm-900 shadow-float group-hover:scale-105 transition-transform duration-500">
+                        <span class="text-white font-serif text-xl italic tracking-wider">ΓΣ</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl font-bold text-calm-900 leading-none">Γρηγορία Σόμπολου</span>
+                        <span class="text-xs uppercase tracking-[0.2em] text-accent mt-1">Συνθετικη Ψυχοθεραπευτρια</span>
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#about" class="text-sm tracking-widest uppercase font-medium text-calm-700 hover:text-calm-900 transition-colors">Η Ψυχολογος</a>
+                    <a href="#services" class="text-sm tracking-widest uppercase font-medium text-calm-700 hover:text-calm-900 transition-colors">Υπηρεσιες</a>
+                    <a href="#emdr" class="text-sm tracking-widest uppercase font-medium text-calm-700 hover:text-calm-900 transition-colors">Μεθοδος EMDR</a>
+                    <a href="#space" class="text-sm tracking-widest uppercase font-medium text-calm-700 hover:text-calm-900 transition-colors">Ο Χωρος</a>
+                    <a href="#contact" class="px-8 py-3 bg-calm-900 text-white rounded-full text-sm tracking-widest uppercase font-medium hover:bg-calm-700 hover:shadow-float transition-all transform hover:-translate-y-1 duration-300">Κλειστε Ραντεβου</a>
+                </div>
+
+                <button class="lg:hidden text-calm-900 focus:outline-none" id="mobile-menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-calm-50/98 backdrop-blur-3xl shadow-2xl hidden flex-col items-center py-10 space-y-8 border-t border-calm-200">
+            <a href="#about" class="text-lg tracking-widest uppercase font-medium mobile-link">Η Ψυχολογος</a>
+            <a href="#services" class="text-lg tracking-widest uppercase font-medium mobile-link">Υπηρεσιες</a>
+            <a href="#emdr" class="text-lg tracking-widest uppercase font-medium mobile-link">Μεθοδος EMDR</a>
+            <a href="#space" class="text-lg tracking-widest uppercase font-medium mobile-link">Ο Χωρος</a>
+            <a href="#contact" class="px-8 py-4 bg-calm-900 text-white rounded-full text-lg tracking-widest uppercase font-medium mobile-link">Κλειστε Ραντεβου</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-start overflow-hidden bg-calm-900 pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-cover bg-center animate-parallax opacity-60" style="background-image: url('https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/unnamed-10.jpg');"></div>
+        </div>
+        
+        <!-- Gradients for depth and readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-calm-950 via-calm-900/80 to-transparent z-10"></div>
+        <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-calm-50 to-transparent z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-20">
+            <div class="max-w-2xl reveal-left">
+                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-dark text-calm-100 text-xs tracking-[0.2em] uppercase mb-8 border-calm-600/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+                    Ιδιωτικο Γραφειο • Θρακομακεδονες
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif text-white leading-tight mb-8 drop-shadow-2xl">
+                    Επουλώνοντας τα <span class="text-gradient italic">Τραύματα</span><br>στη Ρίζα τους.
+                </h1>
+                <p class="text-lg md:text-xl text-calm-300 mb-12 leading-relaxed font-light max-w-lg">
+                    Ένας απολύτως ασφαλής χώρος ίασης. Απελευθερωθείτε από τα ριζωμένα μοτίβα μέσω της Συνθετικής Ψυχοθεραπείας και της νευροβιολογικά τεκμηριωμένης μεθόδου EMDR.
+                </p>
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="#contact" class="px-10 py-5 bg-white text-calm-900 rounded-full text-sm tracking-widest uppercase font-bold hover:bg-calm-100 hover:shadow-float transition-all transform hover:-translate-y-1 flex items-center gap-3 group">
+                        Κλειστε Ραντεβου
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 bg-calm-50 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Portrait Image with animations -->
+                <div class="lg:col-span-5 relative reveal-left">
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-luxe animate-float border-[8px] border-white z-10">
+                        <img src="https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/unnamed-8.jpg" alt="Γρηγορία Σόμπολου" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <!-- Decorative background element -->
+                    <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-calm-200 rounded-full filter blur-3xl opacity-50 z-0"></div>
+                </div>
+
+                <!-- Bio Content -->
+                <div class="lg:col-span-7 reveal-right">
+                    <span class="text-accent tracking-[0.2em] uppercase text-xs font-bold block mb-4">Η Ψυχολογος</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-calm-900 mb-8 leading-tight">Συνθετική Ψυχοθεραπεία & EMDR</h2>
+                    
+                    <div class="space-y-6 text-lg text-calm-700 font-light leading-relaxed">
+                        <p>
+                            Η <strong>Γρηγορία Σόμπολου (BSc, MA, MSc)</strong> είναι αδειούχος Ψυχολόγος, Ψυχοθεραπεύτρια και πιστοποιημένη EMDR Therapist (Αρ. Αδείας: 4633/04-11-2014), διατηρώντας το ιδιωτικό της γραφείο στους Θρακομακεδόνες.
+                        </p>
+                        <p>
+                            Με 18 χρόνια κλινικής εμπειρίας, διαθέτει ένα εξαιρετικά ισχυρό, βρετανικό ακαδημαϊκό υπόβαθρο: κατέχει πτυχίο Ψυχολογίας (BSc) και Μεταπτυχιακό (MA) στην Παιδική Ηλικία & Πρόνοια από το <strong>University of Wales Swansea</strong>, καθώς και Μεταπτυχιακό (MSc) στη Συνθετική Συμβουλευτική και Ψυχοθεραπεία από το <strong>Birmingham City University</strong>.
+                        </p>
+                        <p>
+                            Η κλινική της φαρέτρα είναι πολυδιάστατη και βαθιά στοχευμένη. Έχει εξειδικευτεί στη Συστημική & Οικογενειακή Θεραπεία στο ιστορικό <em>Εργαστήριο Διερεύνησης Ανθρωπίνων Σχέσεων</em> (της Χάρις Κατάκη), ενώ διαθέτει Βασική Εκπαίδευση στη θεραπεία EMDR (από την TACT Hellas), την πιο σύγχρονη και νευροβιολογικά τεκμηριωμένη μέθοδο για την επεξεργασία του τραύματος.
+                        </p>
+                        <p>
+                            Η επιστημονική της επάρκεια αναγνωρίζεται διεθνώς, όντας μέλος του Βρετανικού Συλλόγου Ψυχολόγων (BPS), της UKAPI, του Σ.Ε.Ψ. και της ΕΛΕΣΥΘ. Έχοντας επιπλέον διδάξει Ψυχολογία επί σειρά ετών, διαθέτει το χάρισμα να μεταδίδει την επιστημονική γνώση με απλότητα και ενσυναίσθηση. Στο γραφείο της αναλαμβάνει την αντιμετώπιση της κατάθλιψης, του στρες και των διαπροσωπικών συγκρούσεων, προσφέροντας έναν απολύτως ασφαλή χώρο ίασης για άτομα, ζευγάρια και οικογένειες.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-6 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <span class="text-accent tracking-[0.2em] uppercase text-xs font-bold block mb-4">Εξειδικευμενες Υπηρεσιες</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-calm-900">Τομείς Παρέμβασης</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-calm-50 p-12 rounded-[2rem] border border-calm-100 hover:shadow-float transition-all duration-500 group reveal">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-500">
+                        <i data-lucide="brain" class="w-8 h-8 text-calm-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-calm-900 mb-4">Θεραπεία Ψυχικού Τραύματος & PTSD</h3>
+                    <div class="mb-6 space-x-2">
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Μέθοδος EMDR (60')</span>
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Τραύμα</span>
+                    </div>
+                    <p class="text-calm-700 font-light leading-relaxed">
+                        Κάποια τραυματικά βιώματα (ατυχήματα, κακοποίηση, ξαφνικές απώλειες) δεν ξεπερνιούνται απλώς με τη συζήτηση. Μέσω της πιστοποιημένης θεραπείας EMDR, χρησιμοποιούμε τη Διμερή Διέγερση (Bilateral Stimulation) για να βοηθήσουμε τον εγκέφαλο να "ξεμπλοκάρει" τη μνήμη. Το τραύμα παύει να πυροδοτεί σωματικό πανίκο στο παρόν και αποθηκεύεται ομαλά ως ένα απλό γεγονός του παρελθόντος, προσφέροντας βαθιά και μόνιμη ανακούφιση.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-calm-50 p-12 rounded-[2rem] border border-calm-100 hover:shadow-float transition-all duration-500 group reveal delay-100">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-500">
+                        <i data-lucide="cloud-sun" class="w-8 h-8 text-calm-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-calm-900 mb-4">Κατάθλιψη & Αγχώδεις Διαταραχές</h3>
+                    <div class="mb-6 space-x-2">
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Κατάθλιψη (60')</span>
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Άγχος</span>
+                    </div>
+                    <p class="text-calm-700 font-light leading-relaxed">
+                        Με 18 χρόνια εξειδικευμένης εμπειρίας, η παρέμβαση βασίζεται στη Συνθετική και Συστημική Ψυχοθεραπεία. Μαζί, εντοπίζουμε τα ριζωμένα μοτίβα που σας εγκλωβίζουν στο στρες και τη θλίψη. Στόχος δεν είναι η προσωρινή ανακούφιση, αλλά η ουσιαστική αυτογνωσία, η προσωπική ανάπτυξη και η επανασύνδεση με τη χαρά της ζωής.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-calm-50 p-12 rounded-[2rem] border border-calm-100 hover:shadow-float transition-all duration-500 group reveal">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-500">
+                        <i data-lucide="users" class="w-8 h-8 text-calm-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-calm-900 mb-4">Οικογενειακή Θεραπεία & Ζεύγος</h3>
+                    <div class="mb-6 space-x-2">
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Συνεδρία (60')</span>
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Σχολές Γονέων</span>
+                    </div>
+                    <p class="text-calm-700 font-light leading-relaxed">
+                        Αξιοποιώντας το Μεταπτυχιακό (MA) στην Παιδική Πρόνοια και την εκπαίδευση στη Συστημική Θεραπεία, αναλαμβάνεται η διαχείριση κρίσεων μέσα στο οικογενειακό σύστημα. Προσφέρονται συνεδρίες ζεύγους για την αποκατάσταση της επικοινωνίας, οικογενειακή θεραπεία, καθώς και συμβουλευτική για την υποστήριξη του γονεϊκού ρόλου.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-calm-50 p-12 rounded-[2rem] border border-calm-100 hover:shadow-float transition-all duration-500 group reveal delay-100">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-500">
+                        <i data-lucide="home" class="w-8 h-8 text-calm-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-calm-900 mb-4">Ομαδική Θεραπεία & Κατ' Οίκον</h3>
+                    <div class="mb-6 space-x-2">
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Group Therapy</span>
+                        <span class="inline-block px-3 py-1 bg-white text-xs font-semibold text-calm-600 rounded-full border border-calm-200">Κατ' Οίκον (60')</span>
+                    </div>
+                    <p class="text-calm-700 font-light leading-relaxed">
+                        Η δυναμική της ομάδας αποτελεί ένα πανίσχυρο εργαλείο για την υπέρβαση της κοινωνικής απομόνωσης και τη βελτίωση των σχέσεων μέσα από τον "καθρέφτη" των άλλων. Παράλληλα, αναγνωρίζοντας περιπτώσεις αδυναμίας μετακίνησης, παρέχεται η δυνατότητα κατ' οίκον επισκέψεων, μεταφέροντας την κλινική υποστήριξη στον δικό σας χώρο.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Paradox of Trauma (EMDR Focus) -->
+    <section id="emdr" class="py-32 px-6 bg-calm-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-calm-950 to-transparent opacity-80 z-0"></div>
+        <div class="absolute -right-40 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-accent-dark rounded-full filter blur-[120px] opacity-20 z-0"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10 reveal">
+            <h2 class="text-4xl md:text-5xl font-serif mb-12 text-center text-gradient">Το Παράδοξο του Τραύματος:<br>Πώς το Μυαλό "Ξεκολλάει"</h2>
+            
+            <blockquote class="border-l-4 border-accent pl-8 py-4 mb-12 text-2xl font-serif text-calm-200 italic bg-white/5 rounded-r-2xl">
+                "Το έχω συζητήσει χίλιες φορές, ξέρω λογικά ότι το παρελθόν πέρασε, αλλά το σώμα μου συνεχίζει να αντιδρά με πανικό."
+            </blockquote>
+            
+            <div class="space-y-8 text-lg text-calm-300 font-light leading-relaxed">
+                <p>
+                    Αυτό ακριβώς είναι το παράδοξο του τραύματος (είτε πρόκειται για μια απώλεια, μια κακοποιητική σχέση ή ένα ατύχημα). Το τραύμα δεν είναι μια απλή ανάμνηση. Είναι μια πληροφορία που έχει "εγκλωβιστεί" στο νευρικό μας σύστημα. Η απλή συζήτηση (talk therapy) συχνά δεν αρκεί για να φτάσει σε αυτό το βαθύ, νευροβιολογικό επίπεδο.
+                </p>
+                <p>
+                    Εδώ ακριβώς επεμβαίνει το <strong>EMDR</strong> και η <strong>Διμερής Διέγερση (Bilateral Stimulation)</strong>—η εξειδίκευση που αποτελεί τον πυρήνα της πρακτικής μου απέναντι στο άγχος και την κατάθλιψη:
+                </p>
+                
+                <ul class="space-y-6 mt-8">
+                    <li class="flex items-start gap-4">
+                        <div class="mt-1 bg-white/10 p-2 rounded-full shrink-0">
+                            <i data-lucide="activity" class="w-5 h-5 text-accent-light"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white font-serif text-xl block mb-2">Τι σημαίνει πρακτικά:</strong>
+                            Στη συνεδρία, χρησιμοποιούμε συγκεκριμένες τεχνικές (όπως οπτικές ή ηχητικές κινήσεις από τα δεξιά στα αριστερά) που διεγείρουν εναλλάξ τα δύο ημισφαίρια του εγκεφάλου σας.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="mt-1 bg-white/10 p-2 rounded-full shrink-0">
+                            <i data-lucide="waves" class="w-5 h-5 text-accent-light"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white font-serif text-xl block mb-2">Η Ανακούφιση:</strong>
+                            Αυτή η βιολογική διαδικασία μιμείται αυτό που κάνει ο εγκέφαλός μας με φυσικό τρόπο στον ύπνο REM. Αναγκάζει το νευρικό σύστημα να "χωνέψει" την εγκλωβισμένη, τραυματική μνήμη.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="mt-1 bg-white/10 p-2 rounded-full shrink-0">
+                            <i data-lucide="leaf" class="w-5 h-5 text-accent-light"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white font-serif text-xl block mb-2">Το Αποτέλεσμα:</strong>
+                            Η μνήμη δεν σβήνεται (δεν κάνουμε μαγικά). Όμως, χάνει εντελώς το συναισθηματικό της «δηλητήριο». Θυμάστε το γεγονός, αλλά δεν σας προκαλεί πια ταχυκαρδία, φόβο ή θλίψη.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Space / Gallery Section -->
+    <section id="space" class="py-32 px-6 bg-calm-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-accent tracking-[0.2em] uppercase text-xs font-bold block mb-4">Απολυτη Ιδιωτικοτητα</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-calm-900 mb-6">Ο Χώρος</h2>
+                <p class="text-calm-600 max-w-2xl mx-auto font-light text-lg">
+                    Ένα περιβάλλον υψηλής αισθητικής, σχεδιασμένο με γνώμονα την ηρεμία και την ασφάλεια. Πατήστε στις εικόνες για πλήρη προβολή.
+                </p>
+            </div>
+
+            <!-- Using columns/grid, images true to size visually fitting inside the bounds without CSS cropping -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <button class="bg-white p-4 rounded-[2rem] shadow-glass group relative reveal hover:shadow-float transition-all duration-500 overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/somp.jpg')">
+                    <img src="https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/somp.jpg" alt="Χώρος Γραφείου 1" class="img-unconstrained rounded-xl transform group-hover:scale-[1.02] transition-transform duration-700 max-h-[400px]">
+                    <div class="absolute inset-0 bg-calm-900/0 group-hover:bg-calm-900/10 transition-colors duration-300 rounded-[2rem]"></div>
+                </button>
+                
+                <button class="bg-white p-4 rounded-[2rem] shadow-glass group relative reveal delay-100 hover:shadow-float transition-all duration-500 overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/somp3.jpg')">
+                    <img src="https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/somp3.jpg" alt="Χώρος Γραφείου 2" class="img-unconstrained rounded-xl transform group-hover:scale-[1.02] transition-transform duration-700 max-h-[400px]">
+                    <div class="absolute inset-0 bg-calm-900/0 group-hover:bg-calm-900/10 transition-colors duration-300 rounded-[2rem]"></div>
+                </button>
+                
+                <button class="bg-white p-4 rounded-[2rem] shadow-glass group relative reveal hover:shadow-float transition-all duration-500 overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/unnamed-10.jpg')">
+                    <img src="https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/unnamed-10.jpg" alt="Χώρος Γραφείου 3" class="img-unconstrained rounded-xl transform group-hover:scale-[1.02] transition-transform duration-700 max-h-[400px]">
+                    <div class="absolute inset-0 bg-calm-900/0 group-hover:bg-calm-900/10 transition-colors duration-300 rounded-[2rem]"></div>
+                </button>
+                
+                <button class="bg-white p-4 rounded-[2rem] shadow-glass group relative reveal delay-100 hover:shadow-float transition-all duration-500 overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/somp2.jpg')">
+                    <img src="https://raw.githubusercontent.com/agelmet/SOMPOLOU/refs/heads/main/somp2.jpg" alt="Χώρος Γραφείου 4" class="img-unconstrained rounded-xl transform group-hover:scale-[1.02] transition-transform duration-700 max-h-[400px]">
+                    <div class="absolute inset-0 bg-calm-900/0 group-hover:bg-calm-900/10 transition-colors duration-300 rounded-[2rem]"></div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vertical Reviews Carousel -->
+    <section id="reviews" class="py-32 px-6 bg-white border-t border-calm-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="reveal-left">
+                <span class="text-accent tracking-[0.2em] uppercase text-xs font-bold block mb-4">Εμπειριες</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-calm-900 mb-6">Η Εμπιστοσύνη σας.</h2>
+                <p class="text-calm-600 font-light text-lg mb-10 max-w-md">
+                    Τα λόγια των ανθρώπων που μας εμπιστεύτηκαν αποτελούν την πολυτιμότερη αναγνώριση του έργου μας.
+                </p>
+                <a href="https://www.doctoranytime.gr/d/Psychologos/Sompoloy-Grigoria" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-calm-50 border border-calm-200 rounded-full text-sm tracking-widest uppercase font-bold text-calm-900 hover:bg-calm-100 hover:shadow-float transition-all duration-300">
+                    Διαβαστε στο
+                    <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-5" alt="Doctoranytime">
+                </a>
+            </div>
+
+            <!-- Vertical Marquee Wrapper -->
+            <div class="h-[600px] relative marquee-mask overflow-hidden reveal-right">
+                <div class="marquee-vertical space-y-6 px-4 pb-6">
+                    <!-- Duplicate blocks to create seamless infinite scroll -->
+                    <!-- Block 1 -->
+                    <div class="bg-calm-50 p-8 rounded-3xl border border-calm-100 shadow-glass shrink-0">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="font-serif font-bold text-2xl text-calm-900 block mb-1">10.0</span>
+                                <div class="flex gap-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i>
+                                </div>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 object-contain" alt="DA">
+                        </div>
+                        <p class="text-calm-700 font-light italic text-lg mb-6 leading-relaxed">"Σωστή προσέγγιση του προβλήματος, ενδιαφέρθηκε να με ακούσει. Πολύ καλή επαγγελματίας."</p>
+                        <div class="border-t border-calm-200 pt-4 flex justify-between items-end">
+                            <div>
+                                <p class="font-bold text-calm-900 uppercase tracking-widest text-sm">Νάντια</p>
+                                <p class="text-xs text-calm-500 mt-1">11 αξιολογήσεις</p>
+                            </div>
+                            <p class="text-xs text-calm-500 font-serif">26 Σεπτ 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- Block 2 -->
+                    <div class="bg-calm-50 p-8 rounded-3xl border border-calm-100 shadow-glass shrink-0">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="font-serif font-bold text-2xl text-calm-900 block mb-1">10.0</span>
+                                <div class="flex gap-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i>
+                                </div>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 object-contain" alt="DA">
+                        </div>
+                        <p class="text-calm-700 font-light italic text-lg mb-6 leading-relaxed">"Εκπληκτική ψυχολόγος, έδειξε ενδιαφέρον για το πρόβλημα μου!!"</p>
+                        <div class="border-t border-calm-200 pt-4 flex justify-between items-end">
+                            <div>
+                                <p class="font-bold text-calm-900 uppercase tracking-widest text-sm">Σοφία</p>
+                                <p class="text-xs text-calm-500 mt-1">1 αξιολόγηση</p>
+                            </div>
+                            <p class="text-xs text-calm-500 font-serif">20 Μαΐ 2020</p>
+                        </div>
+                    </div>
+
+                    <!-- Block 3 -->
+                    <div class="bg-calm-50 p-8 rounded-3xl border border-calm-100 shadow-glass shrink-0">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="font-serif font-bold text-2xl text-calm-900 block mb-1">10.0</span>
+                                <div class="flex gap-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i>
+                                </div>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 object-contain" alt="DA">
+                        </div>
+                        <p class="text-calm-700 font-light italic text-lg mb-6 leading-relaxed">"Εξαιρετική!"</p>
+                        <div class="border-t border-calm-200 pt-4 flex justify-between items-end">
+                            <div>
+                                <p class="font-bold text-calm-900 uppercase tracking-widest text-sm">Μαρία</p>
+                                <p class="text-xs text-calm-500 mt-1">3 αξιολογήσεις</p>
+                            </div>
+                            <p class="text-xs text-calm-500 font-serif">24 Ιουλ 2018</p>
+                        </div>
+                    </div>
+
+                    <!-- Block 4 -->
+                    <div class="bg-calm-50 p-8 rounded-3xl border border-calm-100 shadow-glass shrink-0">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="font-serif font-bold text-2xl text-calm-900 block mb-1">10.0</span>
+                                <div class="flex gap-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i>
+                                </div>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 object-contain" alt="DA">
+                        </div>
+                        <p class="text-calm-700 font-light italic text-lg mb-6 leading-relaxed">"Πολύ απλά εμπειρία και Ανθρωπιά!"</p>
+                        <div class="border-t border-calm-200 pt-4 flex justify-between items-end">
+                            <div>
+                                <p class="font-bold text-calm-900 uppercase tracking-widest text-sm">Ασπασία</p>
+                                <p class="text-xs text-calm-500 mt-1">1 αξιολόγηση</p>
+                            </div>
+                            <p class="text-xs text-calm-500 font-serif">04 Οκτ 2016</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Duplicate for infinite loop -->
+                    <!-- Block 1 Clone -->
+                    <div class="bg-calm-50 p-8 rounded-3xl border border-calm-100 shadow-glass shrink-0" aria-hidden="true">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="font-serif font-bold text-2xl text-calm-900 block mb-1">10.0</span>
+                                <div class="flex gap-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i>
+                                </div>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 object-contain" alt="DA">
+                        </div>
+                        <p class="text-calm-700 font-light italic text-lg mb-6 leading-relaxed">"Σωστή προσέγγιση του προβλήματος, ενδιαφέρθηκε να με ακούσει. Πολύ καλή επαγγελματίας."</p>
+                        <div class="border-t border-calm-200 pt-4 flex justify-between items-end">
+                            <div>
+                                <p class="font-bold text-calm-900 uppercase tracking-widest text-sm">Νάντια</p>
+                                <p class="text-xs text-calm-500 mt-1">11 αξιολογήσεις</p>
+                            </div>
+                            <p class="text-xs text-calm-500 font-serif">26 Σεπτ 2024</p>
+                        </div>
+                    </div>
+                     <!-- Block 2 Clone -->
+                     <div class="bg-calm-50 p-8 rounded-3xl border border-calm-100 shadow-glass shrink-0" aria-hidden="true">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="font-serif font-bold text-2xl text-calm-900 block mb-1">10.0</span>
+                                <div class="flex gap-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i><i data-lucide="star" class="w-4 h-4 fill-calm-900 text-calm-900"></i>
+                                </div>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 object-contain" alt="DA">
+                        </div>
+                        <p class="text-calm-700 font-light italic text-lg mb-6 leading-relaxed">"Εκπληκτική ψυχολόγος, έδειξε ενδιαφέρον για το πρόβλημα μου!!"</p>
+                        <div class="border-t border-calm-200 pt-4 flex justify-between items-end">
+                            <div>
+                                <p class="font-bold text-calm-900 uppercase tracking-widest text-sm">Σοφία</p>
+                                <p class="text-xs text-calm-500 mt-1">1 αξιολόγηση</p>
+                            </div>
+                            <p class="text-xs text-calm-500 font-serif">20 Μαΐ 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-calm-950 text-white pt-24 pb-8 relative overflow-hidden">
+        <!-- Abstract shape -->
+        <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-calm-800 rounded-full blur-[100px] opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-24">
+                
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white text-calm-900">
+                            <span class="font-serif text-xl italic tracking-wider">ΓΣ</span>
+                        </div>
+                        <div>
+                            <p class="font-serif text-xl font-bold">Γρηγορία Σόμπολου</p>
+                            <p class="text-xs uppercase tracking-widest text-calm-400">Ψυχολογος - Ψυχοθεραπευτρια</p>
+                        </div>
+                    </div>
+                    <p class="text-calm-300 font-light leading-relaxed mb-8 max-w-sm">
+                        Επικοινωνήστε για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον αποδοχής και απόλυτης εχεμύθειας.
+                    </p>
+                    <a href="https://www.doctoranytime.gr/d/Psychologos/Sompoloy-Grigoria" target="_blank" class="inline-flex items-center justify-center bg-white text-calm-900 px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-calm-200 transition-colors duration-300 group">
+                        Κλειστε Ραντεβου
+                    </a>
+                </div>
+
+                <div class="reveal delay-100">
+                    <h4 class="text-sm font-bold text-white mb-8 uppercase tracking-[0.2em]">Επικοινωνια</h4>
+                    <ul class="space-y-6 text-calm-300 font-light">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i>
+                            <span>Φιλίππου Β 7, Θρακομακεδόνες,<br>Αττική</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent shrink-0"></i>
+                            <a href="tel:+306942658014" class="hover:text-white transition-colors text-lg">694 265 8014</a>
+                        </li>
+                        <li class="flex items-center gap-4 pt-4">
+                            <!-- Socials -->
+                            <a href="https://www.facebook.com/Συμβουλευτική-και-Ψυχοθεραπεία-Σομπολου-Γ-Ψυχολογος-290440247651581/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                                <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/refs/heads/main/icons8-facebook-480.png" alt="Facebook" class="w-5 h-5 object-contain">
+                            </a>
+                            <a href="https://www.doctoranytime.gr/d/Psychologos/Sompoloy-Grigoria" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                                <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" alt="Doctoranytime" class="w-5 h-5 object-contain rounded-full">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="reveal delay-200">
+                    <h4 class="text-sm font-bold text-white mb-8 uppercase tracking-[0.2em]">Ωραριο</h4>
+                    <ul class="space-y-4 text-calm-300 font-light">
+                        <li class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <span>Δευτέρα - Σάββατο</span>
+                            <span class="text-accent text-sm font-medium">Κατόπιν Ραντεβού</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 reveal">
+                <p class="text-calm-500 text-sm font-light">© 2026 Γρηγορία Σόμπολου. Όλα τα δικαιώματα διατηρούνται.</p>
+                <p class="text-calm-500 text-sm font-light">
+                    Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener" class="text-white font-medium hover:text-accent transition-colors tracking-wide">Advon Media</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-calm-950/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-white hover:text-calm-300 transition-colors focus:outline-none">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Προβολή Εικόνας" class="rounded-lg shadow-2xl cursor-default object-contain" onclick="event.stopPropagation()">
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // Navbar Scroll Styling
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-6');
+                navbar.querySelector('.glass-light').classList.add('bg-white/95');
+                navbar.querySelector('.glass-light').classList.remove('glass-light');
+            } else {
+                navbar.classList.add('py-6');
+                navbar.classList.remove('py-2');
+                navbar.querySelector('div > div').classList.add('glass-light');
+                navbar.querySelector('div > div').classList.remove('bg-white/95');
+            }
+        });
+
+        // Scroll Reveal Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    obs.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }, 500);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
